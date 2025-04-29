@@ -79,7 +79,7 @@ For $\hspace{0.3cm}|m| < 1$, $\hspace{0.3cm}x$ changes rapidly, for small change
 So,
 
 $$
-x_{k+1} = x_k+1 \tag{1}
+x_{k+1} = x_k+1
 $$
 
 $$
@@ -87,7 +87,7 @@ $$
 y_k &= mx_k + b\\
 \text{and,}\hspace{0.3cm}y_{k+1} &= m(x_k + 1) + b\\
 &= mx_k + b + m\\
-&= y_k + m \tag{2}
+&= y_k + m
 \end{align*}
 $$
 
@@ -96,7 +96,7 @@ $$
 For $\hspace{0.3cm}|m| > 1$, $\hspace{0.3cm}y$ changes rapidly, for small changes in $x$.
 
 $$
-y_{k+1} = y_k+1 \tag{3}
+y_{k+1} = y_k+1
 $$
 
 $$
@@ -106,7 +106,7 @@ y_k &= mx_k + b\\
 y_k + 1 &= mx_{k + 1} + b\\
 mx_k + b + 1 &= mx_{k + 1} + b\\
 mx_k + 1 &= mx_{k + 1}\\
-x_{k + 1} &= x_k + \frac{1}{m} \tag{4}
+x_{k + 1} &= x_k + \frac{1}{m}
 \end{align*}
 $$
 
@@ -114,11 +114,11 @@ $$
 For $\hspace{0.3cm}|m| = 1$, $\hspace{0.3cm}x$ and $y$ both changes rapidly.
 
 $$
-x_{k+1} = x_k+1 \tag{5}
+x_{k+1} = x_k+1
 $$
 
 $$
-y_{k+1} = y_k+1 \tag{6}
+y_{k+1} = y_k+1
 $$
 
 ---
@@ -148,7 +148,7 @@ We are at pixel $(x_k, y_k)$, so the next pixel is either $(x_k+1, y_k)$ or $(x_
 So, by the line equation $y = mx + b$, the $y$ value at $x_k+1$ will be:
 
 $$
-y = m(x_k + 1) + b\tag{1}
+y = m(x_k + 1) + b
 $$
 
 Let's find $d_1$ and $d_2$:
@@ -156,14 +156,14 @@ Let's find $d_1$ and $d_2$:
 $$
 \begin{align*}
 d_1 &= y - y_k\\
-&= m(x_k + 1) + b - y_k\tag{2}\\
+&= m(x_k + 1) + b - y_k\\
 \end{align*}
 $$
 
 $$
 \begin{align*}
 d_2 &= y_k+1 - y\\
-&= y_k+1 - m(x_k + 1) - b\tag{3}\\
+&= y_k+1 - m(x_k + 1) - b\\
 \end{align*}
 $$
 
@@ -176,7 +176,7 @@ $$
 \begin{align*}
 d_1 - d_2 &= [m(x_k + 1) + b - y_k] - [y_k + 1 - m(x_k + 1) - b]\\
 &= m(x_k + 1) + b - y_k - y_k - 1 + m(x_k + 1) + b\\
-&= 2m(x_k + 1) - 2y_k + 2b - 1 \tag{4}\\
+&= 2m(x_k + 1) - 2y_k + 2b - 1 \\
 \end{align*}
 $$
 
@@ -188,7 +188,7 @@ $$
 &= 2{\Delta y}(x_k + 1) - 2\Delta x y_k + 2\Delta x b - \Delta x\\
 &= 2{\Delta y}x_k + 2\Delta y - 2\Delta x y_k + 2\Delta x b - \Delta x\\
 &= 2{\Delta y}x_k - 2\Delta x y_k + (2\Delta x b + 2\Delta y - \Delta x)\\
-&= 2{\Delta y}x_k - 2\Delta x y_k + c\tag{5}\\
+&= 2{\Delta y}x_k - 2\Delta x y_k + c\\
 \end{align*}
 $$
 
@@ -215,7 +215,7 @@ $$
 However, $x_{k+1} = x_k + 1$, so
 
 $$
-p_{k+1} = p_k + 2{\Delta y} - {2\Delta x}(y_{k+1} - y_k)\tag{6}
+p_{k+1} = p_k + 2{\Delta y} - {2\Delta x}(y_{k+1} - y_k)
 $$
 
 Where the term $(y_{k+1} - y_k)$ is either $0$ or $1$, depending on the parameter $p_k$. It will be $0$ when the next pixel is plotted at the same $y$-coordinate, and $1$ when the next pixel is plotted at the next $y$-coordinate.

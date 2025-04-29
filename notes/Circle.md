@@ -106,7 +106,8 @@ We consider $(0, r)$ as the **starting point**. So,
 $$
 \begin{align*}
 p_0 &= (0 + 1)^2 + \left(r + \frac{1}{2}\right)^2 - r^2 \\
-&= \left(\frac{5}{4} - r\right) \hspace{1cm}\tag{for float radius}\\
-&= \left(1 - r\right) \hspace{1cm}\tag{for integer radius}
+&= \left(\frac{5}{4} - r\right) \hspace{1cm}\text{[for float radius]}\\
+\\
+&= \left(1 - r\right) \hspace{1cm}\text{[for integer radius]}
 \end{align*}
 $$
