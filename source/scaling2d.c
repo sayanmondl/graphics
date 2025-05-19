@@ -1,4 +1,4 @@
-#include <GL/freeglut.h>
+#include <GL/glut.h>
 #include <math.h>
 
 #define WIN_WIDTH 800
@@ -9,12 +9,12 @@ typedef struct Point {
 	float x, y;
 } Point;
 
-void translate(Point verts[], Point transVerts[], int nVerts, float tx,
-	       float ty)
+void scale(Point verts[], Point scaleVerts[], Point fixedPt, int nVerts,
+	   float sx, float sy)
 {
 	for (int i = 0; i < nVerts; i++) {
-		transVerts[i].x = verts[i].x + tx;
-		transVerts[i].y = verts[i].y + ty;
+		scaleVerts[i].x = verts[i].x * sx + fixedPt.x * (1 - sx);
+		scaleVerts[i].y = verts[i].y * sy + fixedPt.y * (1 - sy);
 	}
 }
 
@@ -32,23 +32,24 @@ void drawAxes()
 {
 	glColor3f(0.941, 0.541, 0.365);
 	glBegin(GL_LINES);
-	glVertex2f(-(int)(WIN_WIDTH / 2), 0);
-	glVertex2f((int)(WIN_WIDTH / 2), 0);
-	glVertex2f(0, -(int)(WIN_HEIGHT / 2));
-	glVertex2f(0, (int)(WIN_HEIGHT / 2));
+	glVertex2i(-(int)(WIN_WIDTH / 2), 0);
+	glVertex2i((int)(WIN_WIDTH / 2), 0);
+	glVertex2i(0, -(int)(WIN_HEIGHT / 2));
+	glVertex2i(0, (int)(WIN_HEIGHT / 2));
 	glEnd();
 }
 
 void displayFunc()
 {
 	int nVerts = NVERTS;
-	float tx = 50.0;
-	float ty = -80.0;
+	float sx = 1.3;
+	float sy = 1.3;
 
+	Point fixedPt = { 120.0, 120.0 };
 	Point verts[NVERTS] = {
 		{ 50, 50 }, { 50, 100 }, { 100, 100 }, { 100, 50 }
 	};
-	Point transVerts[NVERTS];
+	Point scaleVerts[NVERTS];
 	float color1[3] = { 1.0, 0, 0 };
 	float color2[3] = { 0, 0, 1.0 };
 
@@ -57,8 +58,8 @@ void displayFunc()
 
 	drawAxes();
 	drawPolygon(nVerts, verts, color1);
-	translate(verts, transVerts, nVerts, tx, ty);
-	drawPolygon(nVerts, transVerts, color2);
+	scale(verts, scaleVerts, fixedPt, nVerts, sx, sy);
+	drawPolygon(nVerts, scaleVerts, color2);
 
 	glFlush();
 }
@@ -76,7 +77,7 @@ int main(int argc, char **argv)
 {
 	glutInit(&argc, argv);
 	glutInitWindowSize(WIN_WIDTH, WIN_HEIGHT);
-	glutCreateWindow("2D Polygon Translation");
+	glutCreateWindow("2D Polygon Scaling");
 
 	init();
 	glutDisplayFunc(displayFunc);

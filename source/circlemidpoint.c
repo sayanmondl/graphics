@@ -1,4 +1,4 @@
-#include <GL/freeglut.h>
+#include <GL/glut.h>
 #include <math.h>
 
 #define WIN_WIDTH 800
@@ -43,10 +43,10 @@ void drawAxes()
 {
 	glColor3f(0.941, 0.541, 0.365);
 	glBegin(GL_LINES);
-	glVertex2f(ORTHO_LEFT, 0);
-	glVertex2f(ORTHO_RIGHT, 0);
-	glVertex2f(0, ORTHO_BOTTOM);
-	glVertex2f(0, ORTHO_TOP);
+	glVertex2i(ORTHO_LEFT, 0);
+	glVertex2i(ORTHO_RIGHT, 0);
+	glVertex2i(0, ORTHO_BOTTOM);
+	glVertex2i(0, ORTHO_TOP);
 	glEnd();
 }
 

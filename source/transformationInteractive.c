@@ -16,12 +16,10 @@ float tx = 0.0, ty = 0.0;
 float sx = 1, sy = 1;
 double theta = 0;
 
-Point origVerts[NVERTS] = {
-    {20.0, 20.0},
-    {20.0, 50.0},
-    {50.0, 50.0},
-    {50.0, 20.0}
-};
+Point origVerts[NVERTS] = { { 20.0, 20.0 },
+			    { 20.0, 50.0 },
+			    { 50.0, 50.0 },
+			    { 50.0, 20.0 } };
 
 Point verts[NVERTS];
 
@@ -61,10 +59,10 @@ void drawAxes()
 {
 	glColor3f(1.0, 1.0, 1.0);
 	glBegin(GL_LINES);
-	glVertex2f(-(int)(WIN_WIDTH / 2), 0);
-	glVertex2f((int)(WIN_WIDTH / 2), 0);
-	glVertex2f(0, -(int)(WIN_HEIGHT / 2));
-	glVertex2f(0, (int)(WIN_HEIGHT / 2));
+	glVertex2i(-(int)(WIN_WIDTH / 2), 0);
+	glVertex2i((int)(WIN_WIDTH / 2), 0);
+	glVertex2i(0, -(int)(WIN_HEIGHT / 2));
+	glVertex2i(0, (int)(WIN_HEIGHT / 2));
 	glEnd();
 }
 
@@ -80,9 +78,9 @@ void drawPolygon(Point verts[])
 
 void displayFunc()
 {
-    for (int i = 0; i < NVERTS; ++i) {
-        verts[i] = origVerts[i];
-    }
+	for (int i = 0; i < NVERTS; ++i) {
+		verts[i] = origVerts[i];
+	}
 
 	Point center;
 	center.x = (verts[0].x + verts[1].x + verts[2].x + verts[3].x) / 4.0f;
@@ -95,7 +93,7 @@ void displayFunc()
 	rotate2d(verts, center);
 	translate2d(verts);
 
-    drawPolygon(verts);
+	drawPolygon(verts);
 	drawAxes();
 
 	glFlush();

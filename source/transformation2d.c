@@ -37,8 +37,8 @@ void matrixMultiply(Matrix3x3 m1, Matrix3x3 m2)
 	for (int i = 0; i < 3; ++i) {
 		for (int j = 0; j < 3; ++j) {
 			mulMat[i][j] = m1[i][0] * m2[0][j] +
-						   m1[i][1] * m2[1][j] +
-						   m1[i][2] * m2[2][j];
+				       m1[i][1] * m2[1][j] +
+				       m1[i][2] * m2[2][j];
 		}
 	}
 
@@ -109,11 +109,11 @@ void applyTransformation(int nVerts, Point *verts, Point *transformedVerts)
 {
 	for (int i = 0; i < nVerts; i++) {
 		transformedVerts[i].x = verts[i].x * transform[0][0] +
-								verts[i].y * transform[0][1] +
-								transform[0][2];
+					verts[i].y * transform[0][1] +
+					transform[0][2];
 		transformedVerts[i].y = verts[i].x * transform[1][0] +
-								verts[i].y * transform[1][1] +
-								transform[1][2];
+					verts[i].y * transform[1][1] +
+					transform[1][2];
 	}
 }
 
@@ -124,10 +124,10 @@ void drawAxes()
 {
 	glColor3f(1.0, 1.0, 1.0);
 	glBegin(GL_LINES);
-	glVertex2f(-(int)(WIN_WIDTH / 2), 0);
-	glVertex2f((int)(WIN_WIDTH / 2), 0);
-	glVertex2f(0, -(int)(WIN_HEIGHT / 2));
-	glVertex2f(0, (int)(WIN_HEIGHT / 2));
+	glVertex2i(-(int)(WIN_WIDTH / 2), 0);
+	glVertex2i((int)(WIN_WIDTH / 2), 0);
+	glVertex2i(0, -(int)(WIN_HEIGHT / 2));
+	glVertex2i(0, (int)(WIN_HEIGHT / 2));
 	glEnd();
 }
 
@@ -184,7 +184,8 @@ void init()
 {
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	gluOrtho2D(-WIN_WIDTH / 2, WIN_WIDTH / 2, -WIN_HEIGHT / 2, WIN_HEIGHT / 2);
+	gluOrtho2D(-WIN_WIDTH / 2, WIN_WIDTH / 2, -WIN_HEIGHT / 2,
+		   WIN_HEIGHT / 2);
 	glMatrixMode(GL_MODELVIEW);
 }
 
